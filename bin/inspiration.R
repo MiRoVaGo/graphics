@@ -8,10 +8,12 @@ data(mpg, package="ggplot2")
 # Scatterplot
 theme_set(theme_bw())  # pre-set the bw theme.
 mpg_select <- mpg[mpg$hwy >= 35 & mpg$cty > 27, ]
-g <- ggplot(mpg, aes(cty, hwy)) + 
+g <- ggplot(mpg, aes(cty, hwy, col = factor(cyl))) + 
   geom_count() + 
-  geom_smooth(method="lm", se=F) +
-  theme(legend.position="none")
+  #geom_smooth(method="lm", se=F) +
+  theme(legend.position="none") +
+  theme_generic + 
+  scale_color_manual(values = palettes_bright$colset_cheer_brights) 
 
 ggMarginal(g, type = "histogram", fill="transparent")
 ggMarginal(g, type = "boxplot", fill="transparent")
@@ -22,22 +24,24 @@ library(ggpubr)
 ggscatterhist(
   iris, x = "Sepal.Length", y = "Sepal.Width",
   color = "Species", size = 3, alpha = 0.6,
-  palette = c("#00AFBB", "#E7B800", "#FC4E07"),
+  palette = palettes_bright$colset_cheer_brights,
   margin.params = list(fill = "Species", color = "black", size = 0.2)
 )
 
 ggscatterhist(
   iris, x = "Sepal.Length", y = "Sepal.Width",
   color = "Species", size = 3, alpha = 0.6,
-  palette = c("#00AFBB", "#E7B800", "#FC4E07"),
+  palette = palettes_bright$colset_urban_oasis[2:4],
   margin.params = list(fill = "Species", color = "black", size = 0.2),
   margin.plot = "boxplot"
 )
 
 
 ################# CORPLOT #####################
-
-ggpairs(iris[,-5])+ theme_bw()
+library(GGally)
+ggpairs(iris[,-5]) + theme_bw()
+ggpairs(iris[,-5]) + 
+  theme_generic 
 
 ################ RADAR CHARTS #######################
 

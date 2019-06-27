@@ -93,7 +93,7 @@ labelled.bars <- flipped.bars +
              colour = "white", 
              fill = NA, 
              label.size = NA, 
-             family="Onyx", 
+             family="Helvetica", 
              size = 6)
 
 labelled.bars

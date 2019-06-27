@@ -1,4 +1,5 @@
 source('./source/libs.R')
+source('./source/palettes.R')
 library(extrafont)
 library(grid) 
 #font_import()  #run first time
@@ -12,13 +13,16 @@ theme_generic <- theme_bw() +
         plot.caption = element_blank(),
         axis.ticks.length = unit(-0.3, "cm"),  
         axis.title.x = element_text(margin = unit(c(0.3, 0, 0, 0), "cm"),
-                                    family = font, size = 18, face = "bold", color = "#222222"), 
+                                    family = font, size = 14, color = "#222222"), 
         axis.text.x = element_text(margin = unit(c(0.5, 0, 0, 0), "cm"), 
-                                 family = font, size = 18, color = "#222222"),
+                                 family = font, size = 12, color = "#222222"),
         axis.title.y = element_text(margin = unit(c(0, 0.3, 0, 0), "cm"), 
-                                    family = font, size = 18, face = "bold", color = "#222222"), 
+                                    family = font, size = 14, color = "#222222"), 
         axis.text.y = element_text(margin = unit(c(0, 0.5, 0, 0), "cm"), 
-                                 family = font, size = 18, color = "#222222"))
+                                 family = font, size = 12, color = "#222222"),
+        legend.title = element_text(family = font, size = 12, color = "#222222"),  
+        legend.text = element_text(family = font, size = 12, color = "#222222"),
+        legend.key = element_blank())
 
 theme_harvard <- theme_minimal() + # start with a minimal theme and add what we need
     theme(text = element_text(color = "gray20"),
