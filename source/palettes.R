@@ -3,6 +3,7 @@
 colset_bright <- c("#6a3d9a", "#375E97", "#008DCB", "#31A9B8", 
                    "#486B00", "#258039", "#A2C523", "#FFCE38", 
                    "#F0810F", "#FA6775", "#D61800", "#9B4F0F")
+
 colset_bright_qual <- colset_bright[c(11, 2, 6, 8, 3, 7, 9, 1, 5, 12, 4, 10)]
 palette_bright <- colorRampPalette(colset_bright)
 palette_bright_qual <- colorRampPalette(colset_bright_qual)
@@ -10,6 +11,7 @@ palette_bright_qual <- colorRampPalette(colset_bright_qual)
 colset_mid <- c( "#4D648D", "#337BAE", "#97B8C2",  "#739F3D", "#ACBD78",  
                  "#F4CC70", "#EBB582",  "#BF9A77",
                  "#E38B75", "#CE5A57",  "#D24136", "#785A46" )
+
 colset_mid_qual <- colset_mid[c(11, 2, 4, 6,  1, 8, 10, 5, 7, 3, 9, 12)]
 palette_mid <- colorRampPalette(colset_mid)
 palette_mid_qual <- colorRampPalette(colset_mid_qual)
@@ -17,8 +19,8 @@ palette_mid_qual <- colorRampPalette(colset_mid_qual)
 colset_light_qual <- c("#8dd3c7",   "#fdb462", "#bebada", "#fb8072", 
                        "#80b1d3",  "#b3de69", "#ffed6f","#bc80bd",      
                        "#d9d9d9",  "#fccde5","#ccebc5", "#a1d6e2")
-palette_light_qual <- colorRampPalette(colset_light_qual)
 
+palette_light_qual <- colorRampPalette(colset_light_qual)
 palette_light_gr_bu <- colorRampPalette(c( "#ACBD78", "grey80","#97B8C2"))
 
 ### VUV Colors

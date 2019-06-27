@@ -18,8 +18,6 @@ g <- ggplot(mpg, aes(cty, hwy, col = factor(cyl))) +
 ggMarginal(g, type = "histogram", fill="transparent")
 ggMarginal(g, type = "boxplot", fill="transparent")
 ggMarginal(g, type="density")
-
-library(ggpubr)
 # Grouped Scatter plot with marginal density plots
 ggscatterhist(
   iris, x = "Sepal.Length", y = "Sepal.Width",
