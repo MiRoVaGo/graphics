@@ -60,7 +60,7 @@ b <- ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, col = Species)) +
   scale_color_manual(values = palettes_bright$colset_cheer_brights) +
   guides(col = guide_legend(nrow = 2, keywidth = 0.1, keyheight = 0.1))+
   theme_very_small
-c <- ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, col = S pecies)) + 
+c <- ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, col = Species)) + 
   geom_point(size = 0.3) +
   scale_color_manual(values = palettes_bright$colset_cheer_brights) +
   guides(col = guide_legend(nrow = 2, keywidth = 0.1, keyheight = 0.1))+
