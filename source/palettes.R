@@ -3,7 +3,7 @@ theme_opts <- list(theme(axis.ticks.length=unit(-0.1, "cm"),
                          axis.text.y = element_text(margin=unit(c(0.2,0.2,0.2,0.2), "cm"))))
 
 
-world.shp = maptools::readShapeLines("C:/Users/markonis/Documents/R/Projects/owda/ne_50m_admin_0_countries_lakes.shp", proj4string=CRS('+proj=longlat +ellps=WGS84'))
+#world.shp = maptools::readShapeLines("C:/Users/markonis/Documents/R/Projects/owda/ne_50m_admin_0_countries_lakes.shp", proj4string=CRS('+proj=longlat +ellps=WGS84'))
 
 #Current Palettes and color sets
 
@@ -60,7 +60,6 @@ palettes_light <- list(
   colset_retro_relaxing = c("#D35C37", "#BF9A77", "#D6C6B9", "#97B8C2")
 )
 
-test_palette(colorRampPalette(palettes_mid$colset_surf_turf), 4)
 #Testing palettes
 test_palette <- function(palette_name, n = 4){
   
