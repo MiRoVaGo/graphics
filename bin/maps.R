@@ -57,7 +57,7 @@ ggplot(bbox_wintri, aes(long, lat, group = group)) +
   scale_fill_manual(values=c("white", "white"), guide = "none")
 
 ###############################################
-#New
+#New: https://www.r-spatial.org/r/2018/10/25/ggplot2-sf.html
 ###############################################
 library("sf")
 library("rnaturalearth")
