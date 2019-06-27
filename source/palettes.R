@@ -1,10 +1,3 @@
-theme_opts <- list(theme(axis.ticks.length=unit(-0.1, "cm"),  
-                         axis.text.x = element_text(margin=unit(c(0.2,0.2,0.2,0.2), "cm")), 
-                         axis.text.y = element_text(margin=unit(c(0.2,0.2,0.2,0.2), "cm"))))
-
-
-#world.shp = maptools::readShapeLines("C:/Users/markonis/Documents/R/Projects/owda/ne_50m_admin_0_countries_lakes.shp", proj4string=CRS('+proj=longlat +ellps=WGS84'))
-
 #Current Palettes and color sets
 
 colset_bright <- c("#6a3d9a", "#375E97", "#008DCB", "#31A9B8", 
@@ -27,6 +20,15 @@ colset_light_qual <- c("#8dd3c7",   "#fdb462", "#bebada", "#fb8072",
 palette_light_qual <- colorRampPalette(colset_light_qual)
 
 palette_light_gr_bu <- colorRampPalette(c( "#ACBD78", "grey80","#97B8C2"))
+
+### VUV Colors
+# dark green R:10 G:111 B:136 #0A6F88
+# light green R:21 G:169 B:198 #15A9C6
+# pea green R:88 G:181 B:46 #58B52E
+# red R:224 G:14 B:28 #E00E1C
+# purple R:119 G:0 B:127 #77007F
+# orange R:237 G:136 B:16 #ED8810
+palette_vuv <- colorRampPalette(c( "#0A6F88", "#15A9C6", "#58B52E", "#E00E1C", "#77007F", "#ED8810"))
 
 # https://www.canva.com/learn/100-color-combinations/
 
@@ -63,19 +65,62 @@ palettes_light <- list(
 #Testing palettes
 test_palette <- function(palette_name, n = 4){
   
-  test <- data.table(var = c(rep("A", 250), rep("B", 250), rep("C", 250), rep("D", 250)), x = rnorm(1000), y = rnorm(1000))
+  vars <- 1:n
+  test <- data.table(var = as.factor(c(rep(vars, 250))), x = rnorm(250*length(vars)), y = rnorm(250*length(vars)))
   
-  plot(1:n, rep(1, n), col = palette_name(n), cex = 4, pch = 16)
+  par(mfrow = c(2,1))
+    plot(1:n, rep(1, n), col = palette_name(n), cex = 4, pch = 16)
+    plot(1:n, rep(1, n), col = ColToGrey(palette_name(n)), cex = 4, pch = 16, main = "grayscale")
+  par(mfrow = c(1,1))
   
-  print(ggplot(test, aes(x, y, col = var)) +
+  
+  a <- ggplot(test, aes(x, y, col = var)) +
     geom_point(size = 2) + 
     scale_color_manual(values = palette_name(n)) + 
-    theme_bw())
+    theme_bw()
   
-  ggplot(test, aes(x, y, fill = var)) +
+  b <- ggplot(test, aes(y = y, fill = var)) +
     geom_boxplot() + 
     scale_fill_manual(values =  palette_name(n)) + 
     theme_bw()
+  
+  c <- ggplot(test, aes(x = x, y = y, col = var)) +
+    geom_smooth(se = F) + 
+    scale_color_manual(values =  palette_name(n)) + 
+    theme_bw()
+  
+  d <- ggplot(test, aes(x = round(x*2), y = round(y*2), fill = var)) +
+    geom_tile() + 
+    scale_fill_manual(values =  palette_name(n)) + 
+    theme_bw()
+  
+  e <- ggplot(test, aes(x, y, col = var)) +
+    geom_point(size = 2) + 
+    scale_color_manual(values = ColToGrey(palette_name(n))) + 
+    labs(title = "Colors in grayscale") +
+    theme_bw()
+  
+  f <- ggplot(test, aes(y = y, fill = var)) +
+    geom_boxplot() + 
+    scale_fill_manual(values = ColToGrey(palette_name(n))) + 
+    labs(title = "Colors in grayscale") +
+    theme_bw()
+  
+  g <- suppressWarnings(ggplot(test, aes(x = x, y = y, col = var)) +
+    geom_smooth(se = F) + 
+    scale_color_manual(values =  ColToGrey(palette_name(n))) + 
+    labs(title = "Colors in grayscale") +
+    theme_bw())
+ 
+  h <- ggplot(test, aes(x = round(x*2), y = round(y*2), fill = var)) +
+    geom_tile() + 
+    scale_fill_manual(values =  ColToGrey(palette_name(n))) + 
+    labs(title = "Colors in grayscale") +
+    theme_bw() 
+  
+  ggarrange(a,b,c,d,e,f,g,h, ncol = 2, nrow = 2)
+  
+  
 }
 
 dec_pts <- function(x) sprintf("%.3f", x)
