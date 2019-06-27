@@ -1,14 +1,3 @@
-library(latticeExtra)
-library(raster)
-library(rasterVis)
-library(gridExtra)
-library(maptools)
-library(rgdal)
-library(ggplot2)
-library(gstat)
-library(sp)
-library(corrplot)
-
 theme_opts <- list(theme(axis.ticks.length=unit(-0.1, "cm"),  
                          axis.text.x = element_text(margin=unit(c(0.2,0.2,0.2,0.2), "cm")), 
                          axis.text.y = element_text(margin=unit(c(0.2,0.2,0.2,0.2), "cm"))))
