@@ -26,6 +26,41 @@ theme_generic <- theme_bw() +
         legend.position = c("bottom"), # position the legend in the upper left 
         legend.direction = "horizontal")
 
+theme_small <- theme_bw() +
+  theme(plot.title = element_text(family = font, size = 14, face = "bold", color = "#222222"), 
+        plot.subtitle = element_text(family = font, size = 10, margin = margin(9, 0, 9, 0)), 
+        plot.caption = element_blank(),
+        axis.ticks.length = unit(-0.2, "cm"),  
+        axis.title.x = element_text(margin = unit(c(0.3, 0, 0, 0), "cm"),
+                                    family = font, size = 8, color = "#222222"), 
+        axis.text.x = element_text(margin = unit(c(0.5, 0, 0, 0), "cm"), 
+                                   family = font, size = 8, color = "#222222"),
+        axis.title.y = element_text(margin = unit(c(0, 0.3, 0, 0), "cm"), 
+                                    family = font, size = 8, color = "#222222"), 
+        axis.text.y = element_text(margin = unit(c(0, 0.5, 0, 0), "cm"), 
+                                   family = font, size = 8, color = "#222222"),
+        legend.title = element_text(family = font, size = 8, color = "#222222"),  
+        legend.text = element_text(family = font, size = 8, color = "#222222"),
+        legend.key = element_blank())
+
+
+theme_very_small <- theme_bw() +
+  theme(plot.title = element_text(family = font, size = 10, face = "bold", color = "#222222"), 
+        plot.subtitle = element_text(family = font, size = 8, margin = margin(9, 0, 9, 0)), 
+        plot.caption = element_blank(),
+        axis.ticks.length = unit(-0.1, "cm"),  
+        axis.title.x = element_text(margin = unit(c(0.3, 0, 0, 0), "cm"),
+                                    family = font, size = 8, color = "#222222"), 
+        axis.text.x = element_text(margin = unit(c(0.5, 0, 0, 0), "cm"), 
+                                   family = font, size = 8, color = "#222222"),
+        axis.title.y = element_text(margin = unit(c(0, 0.3, 0, 0), "cm"), 
+                                    family = font, size = 8, color = "#222222"), 
+        axis.text.y = element_text(margin = unit(c(0, 0.5, 0, 0), "cm"), 
+                                   family = font, size = 8, color = "#222222"),
+        legend.title = element_text(family = font, size = 8, color = "#222222"),  
+        legend.text = element_text(family = font, size = 8, color = "#222222"),
+        legend.key = element_blank())
+
 theme_harvard <- theme_minimal() + # start with a minimal theme and add what we need
     theme(text = element_text(color = "gray20"),
           legend.position = c("top"), # position the legend in the upper left 
