@@ -1,3 +1,7 @@
+####  BBC cookbook to make the process of creating publication-ready graphics 
+####  using R’s ggplot2 library a more reproducible process.
+####  Source: https://bbc.github.io/rcookbook/
+
 #devtools::install_github('bbc/bbplot')
 
 if(!require(pacman))install.packages("pacman")
@@ -39,7 +43,8 @@ multiple_line <- ggplot(multiple_line_df, aes(x = year, y = lifeExp, colour = co
   scale_colour_manual(values = c("#FAAB18", "#1380A1")) +
   bbc_style() +
   labs(title="Living longer",
-       subtitle = "Life expectancy in China and the US")
+       subtitle = "Life expectancy in China and the US") +
+  geom_hline(yintercept = 10, size = 1, colour = "red", linetype = "dashed")
 
 multiple_line <- multiple_line +
   geom_label(aes(x = 1980, y = 45, label = "I'm quite a long\nannotation over\nthree rows"), 
@@ -52,11 +57,12 @@ multiple_line <- multiple_line +
            family="Helvetica", 
            size = 6) 
 
-multiple_line + geom_curve(aes(x = 1979, y = 45, xend = 1965, yend = 43), 
+multiple_line + 
+  geom_curve(aes(x = 1979, y = 45, xend = 1965, yend = 43), 
                            colour = "#555555", 
                            size=0.5, 
                            curvature = -0.2,
-                           arrow = arrow(length = unit(0.03, "npc")))
+                           arrow = arrow(length = unit(0.03, "npc"))) 
 
 ##########################################################
 #Bar 
@@ -131,6 +137,7 @@ stacked_bars <- ggplot(data = stacked_df,
         legend.justification = "left") +
   guides(fill = guide_legend(reverse = TRUE))
 
+stacked_bars
 #########################################################
 #Grouped bar
 #########################################################
@@ -160,6 +167,7 @@ grouped_bars <- ggplot(grouped_bar_df,
   labs(title="We're living longer",
        subtitle = "Biggest life expectancy rise, 1967-2007")
 
+grouped_bars
 #########################################################
 #dumbbell chart
 #########################################################
@@ -206,10 +214,14 @@ ggplot(hist_df, aes(lifeExp)) +
 #########################################################
 #facets
 #########################################################
+facet <- gapminder %>%
+  filter(continent != "Americas") %>%
+  group_by(continent, year) %>%
+  summarise(pop = sum(as.numeric(pop)))
 
 facet_plot_free <- ggplot() +
   geom_area(data = facet, aes(x = year, y = pop, fill = continent)) +
-  facet_wrap(~ continent, scales = "free") + 
+  facet_wrap(~continent, scales = "free") + 
   bbc_style() +
   scale_fill_manual(values = c("#FAAB18", "#1380A1","#990000", "#588300")) +
   geom_hline(yintercept = 0, size = 1, colour = "#333333") +
@@ -218,3 +230,5 @@ facet_plot_free <- ggplot() +
         axis.text.y = element_blank()) +
   labs(title = "It's all relative",
        subtitle = "Relative population growth by continent,1952-2007")
+
+facet_plot_free
