@@ -1,7 +1,5 @@
 ################## MARGINAL PLOT ###################
-
-library(ggplot2)
-library(ggExtra)
+source("./source/libs.R")
 
 data(mpg, package="ggplot2")
 
@@ -16,7 +14,7 @@ g <- ggplot(mpg, aes(cty, hwy, col = factor(cyl))) +
   scale_color_manual(values = palettes_bright$colset_cheer_brights) 
 
 ggMarginal(g, type = "histogram", fill="transparent")
-ggMarginal(g, type = "boxplot", fill="transparent")
+ggMarginal(g, type = "boxplot", fill="transparent") 
 ggMarginal(g, type="density")
 # Grouped Scatter plot with marginal density plots
 ggscatterhist(
@@ -70,11 +68,8 @@ radarchart( data  , axistype=1 ,
 
 
 ################# PATCH WORK ########################
-
-library(ggplot2)
-library(patchwork)
-
 devtools::install_github("thomasp85/patchwork")
+library(patchwork)
 
 p1 <- ggplot(mtcars) + geom_point(aes(mpg, disp))
 p2 <- ggplot(mtcars) + geom_boxplot(aes(gear, disp, group = gear))
@@ -84,5 +79,5 @@ p4 <- ggplot(mtcars) + geom_bar(aes(carb))
 p1 + p2 + p3 + p4
 p1 + p2 - p3 + plot_layout(ncol = 1)
 (p1 | p2 | p3) / p4
-(p1 + (p2 + p3) + p4 + plot_layout(ncol = 1)) * theme_bw()
+(p1 + (p2 + p3) + p4 + plot_layout(ncol = 1)) * theme_generic 
 p1 + (p2 + p3) + p4 + plot_layout(ncol = 1) & theme_bw()
