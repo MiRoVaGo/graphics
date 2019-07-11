@@ -54,7 +54,7 @@ data=rbind(rep(20,10) , rep(0,10) , data)
 radarchart(data)
 
 # Custom the radarChart !
-radarchart( data  , axistype=1 , 
+radarchart(data, axistype=1 , 
             
             #custom polygon
             pcol=rgb(0.2,0.5,0.5,0.9) , pfcol=rgb(0.2,0.5,0.5,0.5) , plwd=4 , 
