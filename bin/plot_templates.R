@@ -15,8 +15,8 @@ ggplot(mtcars, aes(factor(cyl), mpg)) +
   theme_generic
 
 # density
-ggplot(data=diamonds,aes(x=price, group=cut, fill=cut)) + 
-  geom_density(adjust=1.5, alpha=0.5)+
+ggplot(data = diamonds, aes(x = price, group = cut, fill=cut)) + 
+  geom_density(adjust = 1.5, alpha = 0.5)+
   scale_fill_manual(values = colset_mid) +
   theme_generic
 
