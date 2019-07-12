@@ -5,5 +5,3 @@ pacman::p_load('dplyr', 'tidyr', 'DescTools',
                'forcats', 'R.utils', 'png', 
                'grid', 'ggpubr', 'scales',
                'bbplot')
-
-https://github.com/KVHEM/graphics.git
