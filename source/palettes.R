@@ -1,6 +1,7 @@
 # Various palettes and a function to test them
 
-#Current Palettes and color sets
+
+### Current Palettes and color sets
 
 colset_bright <- c("#6a3d9a", "#375E97", "#008DCB", "#31A9B8", 
                    "#486B00", "#258039", "#A2C523", "#FFCE38", 
@@ -67,6 +68,7 @@ palettes_light <- list(
 )
 
 ### A function to test palettes
+
 test_palette <- function(palette_name, n = 4){
   
   vars <- 1:n
@@ -126,6 +128,7 @@ test_palette <- function(palette_name, n = 4){
 }
 
 ### Older Palettes
+
 rgb_palette_RdBu <- colorRampPalette(rev(c('#d73027','#f46d43','#fdae61','#fee090','#fef0d9','#e0f3f8','#abd9e9','#74add1','#4575b4')), space = "rgb")
 gradient_RdBu <- rgb.palette.RdBu(100)
 my_drought_col <- colorRampPalette(c('#8c510a','#d8b365','#f6e8c3','#f5f5f5','skyblue1','skyblue3','skyblue4'), interpolate = "spline", space = "rgb")
