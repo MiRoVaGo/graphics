@@ -1,7 +1,10 @@
+#Not finished 
+
 source('./source/libs.R')
 source('./source/themes.R')
 source('./source/palettes.R')
 library(rgdal)
+
 map_path = "../geodata/"
 
 # read shapefiles
