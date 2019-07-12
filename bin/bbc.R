@@ -2,7 +2,7 @@
 ####  using R’s ggplot2 library a more reproducible process.
 ####  Source: https://bbc.github.io/rcookbook/
 
-#devtools::install_github('bbc/bbplot')
+#devtools::install_github('bbc/bbplot')  #Run this for the first time to install the bb package
 
 if(!require(pacman))install.packages("pacman")
 
