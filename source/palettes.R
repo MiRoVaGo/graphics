@@ -1,4 +1,7 @@
-#Current Palettes and color sets
+# Various palettes and a function to test them
+
+
+### Current Palettes and color sets
 
 colset_bright <- c("#6a3d9a", "#375E97", "#008DCB", "#31A9B8", 
                    "#486B00", "#258039", "#A2C523", "#FFCE38", 
@@ -32,7 +35,7 @@ palette_light_gr_bu <- colorRampPalette(c( "#ACBD78", "grey80","#97B8C2"))
 # orange R:237 G:136 B:16 #ED8810
 palette_vuv <- colorRampPalette(c( "#0A6F88", "#15A9C6", "#58B52E", "#E00E1C", "#77007F", "#ED8810"))
 
-# https://www.canva.com/learn/100-color-combinations/
+### Some palettes from https://www.canva.com/learn/100-color-combinations/
 
 palettes_bright <- list(
   colset_cheer_brights = c("#C73721", "#31A9B8", "#F5BE41", "#258039"),
@@ -64,7 +67,8 @@ palettes_light <- list(
   colset_retro_relaxing = c("#D35C37", "#BF9A77", "#D6C6B9", "#97B8C2")
 )
 
-#Testing palettes
+### A function to test palettes
+
 test_palette <- function(palette_name, n = 4){
   
   vars <- 1:n
@@ -120,26 +124,18 @@ test_palette <- function(palette_name, n = 4){
     labs(title = "Colors in grayscale") +
     theme_bw() 
   
-  ggarrange(a,b,c,d,e,f,g,h, ncol = 2, nrow = 2)
-  
-  
+  ggarrange(a, b, c, d, e, f, g, h, ncol = 2, nrow = 2)
 }
 
-dec_pts <- function(x) sprintf("%.3f", x)
+### Older Palettes
 
-sci_10 <- function(x) {
-  out <- parse(text = gsub("e", " %*% 10^", scales::scientific_format()(x)))
-  return(out)
-}
-
-#Older Palettes
-rgb.palette.RdBu = colorRampPalette(rev(c('#d73027','#f46d43','#fdae61','#fee090','#fef0d9','#e0f3f8','#abd9e9','#74add1','#4575b4')), space = "rgb")
-gradient_RdBu = rgb.palette.RdBu(100)
-my.drought.col = colorRampPalette(c('#8c510a','#d8b365','#f6e8c3','#f5f5f5','skyblue1','skyblue3','skyblue4'), interpolate = "spline", space = "rgb")
-my.purples.uneven = colorRampPalette(c(rep('#edf8fb',6),'#bfd3e6','#9ebcda','#8c96c6','#8c6bb1'), space = "rgb")
-my.reds = colorRampPalette(c('#fef0d9','#fdd49e','#fdbb84','#fc8d59','#ef6548','#d7301f','#990000'), space = "rgb")
-rgb.palette.Qualitative.1 = colorRampPalette(c("#4575b4", "#78c679", "#f46d43", "#74add1", "#807dba", "#fee090", "#d9f0a3", "#d73027",     "#abd9e9", "#fdae61", "#fa9fb5", "#ffed6f"), space = "rgb")
-rgb.palette.Qualitative.2 = colorRampPalette(c("#8dd3c7", "#ffffb3", "#bebada", "#fb8072", "#80b1d3", "#fdb462", "#b3de69", "#fccde5",     "#d9d9d9", "#bc80bd", "#ccebc5", "#ffed6f"))
-rgb.palette.Qualitative.3 = colorRampPalette(c("#a6cee3", "#1f78b4", "#b2df8a", "#33a02c", "#fb9a99", "#e31a1c", "#fdbf6f", "#ff7f00",     "#cab2d6", "#6a3d9a", "#ffed6f", "#b15928"))
+rgb_palette_RdBu <- colorRampPalette(rev(c('#d73027','#f46d43','#fdae61','#fee090','#fef0d9','#e0f3f8','#abd9e9','#74add1','#4575b4')), space = "rgb")
+gradient_RdBu <- rgb.palette.RdBu(100)
+my_drought_col <- colorRampPalette(c('#8c510a','#d8b365','#f6e8c3','#f5f5f5','skyblue1','skyblue3','skyblue4'), interpolate = "spline", space = "rgb")
+my_purples_uneven <- colorRampPalette(c(rep('#edf8fb',6),'#bfd3e6','#9ebcda','#8c96c6','#8c6bb1'), space = "rgb")
+my_reds <- colorRampPalette(c('#fef0d9','#fdd49e','#fdbb84','#fc8d59','#ef6548','#d7301f','#990000'), space = "rgb")
+rgb_palette_Qualitative_1 <- colorRampPalette(c("#4575b4", "#78c679", "#f46d43", "#74add1", "#807dba", "#fee090", "#d9f0a3", "#d73027",     "#abd9e9", "#fdae61", "#fa9fb5", "#ffed6f"), space = "rgb")
+rgb_palette_Qualitative_2 <- colorRampPalette(c("#8dd3c7", "#ffffb3", "#bebada", "#fb8072", "#80b1d3", "#fdb462", "#b3de69", "#fccde5",     "#d9d9d9", "#bc80bd", "#ccebc5", "#ffed6f"))
+rgb_palette_Qualitative_3 <- colorRampPalette(c("#a6cee3", "#1f78b4", "#b2df8a", "#33a02c", "#fb9a99", "#e31a1c", "#fdbf6f", "#ff7f00",     "#cab2d6", "#6a3d9a", "#ffed6f", "#b15928"))
 
 
