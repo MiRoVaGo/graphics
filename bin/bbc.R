@@ -24,9 +24,9 @@ line_df <- gapminder %>%
 #Make plot
 line <- ggplot(line_df, aes(x = year, y = lifeExp)) +
   geom_line(colour = "#1380A1", size = 1) +
-  geom_hline(yintercept = 0, size = 1, colour="#333333") +
+  geom_hline(yintercept = 0, size = 1, colour = "#333333") +
   bbc_style() +
-  labs(title="Living longer",
+  labs(title = "Living longer",
        subtitle = "Life expectancy in Malawi 1952-2007")
 
 ##########################################################
